@@ -14,8 +14,8 @@ class BukuController extends Controller
     public function index()
     {
 
-        $buku= DB::table('buku')
-        ->join('jenis_buku','buku.id','=','jenis_buku.id')->get();
+        $buku= DB::table('buku')->get();
+        //dd($buku);
         return view('tampil0122',['buku'=>$buku]);
     }
 
@@ -38,12 +38,12 @@ class BukuController extends Controller
     public function store(Request $request)
     {
         DB::table('buku')->insert([
-            'id'=>$request->id,
+
             'judul'=>$request->judul,
             'tahun_terbit'=>$request->tahun_terbit
         ]);
 
-        return redirect('/tambah0122');
+        return redirect()->route("buku.index");
     }
 
     /**
@@ -80,12 +80,12 @@ class BukuController extends Controller
     public function update(Request $request, $id)
     {
         DB::table('buku')->where('id',$request->id)->update([
-            'id'=>$request->id,
+      
             'judul'=>$request->judul,
             'tahun_terbit'=>$request->tahun_terbit
         ]);
 
-        return redirect('/');
+        return redirect()->route("buku.index");
     }
 
     /**
@@ -98,6 +98,6 @@ class BukuController extends Controller
     {
         DB::table('buku')->where('id',$id)->delete();
 
-        return redirect('/');
+        return redirect()->route("buku.index");
     }
 }

@@ -22,11 +22,12 @@
                  <table border="1">
                     <tr>
                         @foreach ($buku as $b)
-                            <form action="update" method="post">
-                            {{scrf_field()}}
-                            <input type="hidden" name="id" value="{{$b->pegawai_id}}"><br/>
-                            Judul <input type="text" required="required" name="judul" value="{{}$b->judul}"><br/>
-                            Tahun <input type="text" required="required" name="tahun_terbit" value="{{}$b->tahun_terbit}"><br/>
+                            <form action="{{url('update',$b->id)}}" method="post">
+                            {{csrf_field()}}
+                            @method("put")
+                        
+                            Judul <input type="text" required="required" name="judul" value="{{$b->judul}}"><br/>
+                            Tahun <input type="text" required="required" name="tahun_terbit" value="{{$b->tahun_terbit}}"><br/>
                             <input type="submit" value="Simpan Data">
                             </form>
 

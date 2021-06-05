@@ -23,17 +23,17 @@
                         <th> ID </th>
                         <th> Judul </th>
                         <th> Tahun Terbit </th>
-                        <th> Jenis Buku</th>
+                     
                         <th> Option </th>
 
                     </tr>
                     @foreach($buku as $b)
                     <tr>
-                        <td>{{ $b->id}}</td>
+                        <td>{{ $loop->iteration}}</td>
                         <td>{{ $b->judul}}</td>
                         <td>{{ $b->tahun_terbit}}</td>
-                        <td>{{$b->jenis}}</td>
-                        <td> <a href="{{url('update')}}">Edit</a>| <a href="">Hapus</a></td>
+
+                        <td> <a href="{{url('/edit0122',$b->id)}}">Edit</a>| <a href="{{url('hapus',$b->id)}}">Hapus</a></td>
                     </tr>
                     @endforeach
                  </table>

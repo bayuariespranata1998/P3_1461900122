@@ -20,7 +20,6 @@
             <td width="1000" bgcolor="#776">
                  <form action="/store" method="post">
             {{csrf_field()}}
-                 id <input type="text" name="id"><br/>
                  Judul <input type="text" name="judul"><br/>
                  Tahun Terbit <input type="text" name="tahun_terbit"><br/>
                  <input type="submit" value="Simpan Data ">
